@@ -13,13 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Lint
+        uses: golangci/golangci-lint-action@v2.5.1
+        with:
+          version: v1.2.3
+
+      - name: lint
+        run: golangci-lint run ./...
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.16
-
-      - name: Lint
-        run: golangci-lint run ./...
 
       - name: Build
         run: go build -v ./...
