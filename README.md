@@ -8,6 +8,7 @@ Go微服务框架整合脚手架
 - [X] Web框架 [echo](https://github.com/labstack/echo)
 - [X] 依赖注入 [fx](https://github.com/uber-go/fx)
 - [X] sqlx [sqlx](https://github.com/jmoiron/sqlx)
+- [X] golangci-lint [golangci-lint](https://github.com/golangci/golangci-lint)
 - [ ] Mock生产器 [mockery](https://github.com/mockery/mockery)
 - [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
 - [ ] Swagger generator [swag](https://github.com/swaggo/swag)
