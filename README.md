@@ -1,7 +1,7 @@
 # go-starter
 
 Go微服务框架整合脚手架
-
+- [X] Github Actions
 - [X] 自定义Logger [logrus](https://github.com/sirupsen/logrus)
 - [X] CLI命令 [cobra](https://github.com/spf13/cobra)
 - [X] 配置读取器 [viper](https://github.com/spf13/viper)
