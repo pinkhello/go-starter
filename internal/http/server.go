@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
+	echoSwagger "github.com/swaggo/echo-swagger"
 	"go-starter/config"
 	"go.uber.org/fx"
 )
@@ -20,6 +21,8 @@ func NewServer(lifecycle fx.Lifecycle, config config.Config) *echo.Echo {
 	instance.Use(middleware.Recover)
 
 	instance.HTTPErrorHandler = middleware.ErrorHandler
+
+	instance.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	lifecycle.Append(fx.Hook{
 		OnStart: func(ctx context.Context) error {

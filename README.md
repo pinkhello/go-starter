@@ -9,10 +9,11 @@ Go微服务框架整合脚手架
 - [X] 依赖注入 [fx](https://github.com/uber-go/fx)
 - [X] sqlx [sqlx](https://github.com/jmoiron/sqlx)
 - [X] golangci-lint [golangci-lint](https://github.com/golangci/golangci-lint)
-- [ ] Mock生产器 [mockery](https://github.com/mockery/mockery)
-- [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
 - [ ] Swagger generator [swag](https://github.com/swaggo/swag)
 - [ ] Swagger ui [echo-swagger](https://github.com/swaggo/echo-swagger)
 - [ ] Swagger validation [go-swagger](https://github.com/go-swagger/go-swagger)
+- [ ] ......
+- [ ] Mock生产器 [mockery](https://github.com/mockery/mockery)
+- [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
 - [ ] Messaging [NSQ](https://github.com/nsqio/nsq)
 - [ ] ......
