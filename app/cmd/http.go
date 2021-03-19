@@ -6,6 +6,7 @@ import (
 	"go-starter/internal/controller"
 	"go-starter/internal/http"
 	libs "go-starter/internal/lib"
+	"go-starter/internal/nsq"
 	"go-starter/internal/repository"
 	"go-starter/internal/service"
 	"go-starter/utils"
@@ -34,6 +35,9 @@ func inject() fx.Option {
 		repository.Module,
 		service.Module,
 		controller.Module,
+		nsq.ProducerModule,
+		nsq.ConsumerModule,
 		http.Module,
+
 	)
 }
