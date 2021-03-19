@@ -5,8 +5,6 @@ import (
 	"go.uber.org/fx"
 )
 
-var Module = fx.Options(
-	fx.Provide(
-		mysql.NewBusinessGroupRepository,
-	),
+var Module = fx.Provide(
+	mysql.NewBusinessGroupRepository,
 )

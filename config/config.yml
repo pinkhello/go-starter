@@ -1,0 +1,19 @@
+---
+debug: true
+contextTimeout: 5
+
+server:
+  address: ":8080"
+
+database:
+  driver: "mysql"
+  host: "mysql_test"
+  port: 3306
+  username: "gostarter"
+  password: "gostarter"
+  name: "db_test"
+
+nsq:
+  host: "nsqd"
+  port: 4150
+...

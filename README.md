@@ -10,6 +10,6 @@ Go微服务框架整合脚手架
 - [X] ORM [xorm](https://github.com/go-xorm/xorm)
 - [X] Swagger generator [swag](https://github.com/swaggo/swag) [echo-swagger](https://github.com/swaggo/echo-swagger)
 - [X] Messaging [NSQ](https://github.com/nsqio/nsq)
-- [ ] ......
 - [ ] golangci-lint [golangci-lint](https://github.com/golangci/golangci-lint)
 - [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
+- [ ] ......

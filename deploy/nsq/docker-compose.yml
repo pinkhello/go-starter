@@ -1,0 +1,56 @@
+---
+version: '3'
+
+networks:
+  go_starter_network:
+    external: true
+
+services:
+  nsqlookupd:
+    image: nsqio/nsq
+    command: /nsqlookupd
+    restart: always
+    ports:
+      - 4160
+      - 4161
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - go_starter_network
+  nsqd:
+    image: nsqio/nsq
+    command: /nsqd --lookupd-tcp-address=nsqlookupd:4160 -broadcast-address=nsqd -data-path /usr/local/nsq/bin/data
+    restart: always
+    volumes:
+    - ./data:/usr/local/nsq/bin/data
+    depends_on:
+      - nsqlookupd
+    ports:
+      - 4150
+      - 4151
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - go_starter_network
+  nsqadmin:
+    image: nsqio/nsq
+    command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
+    restart: always
+    depends_on:
+      - nsqlookupd
+    ports:
+      - 4171
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - go_starter_network
+...

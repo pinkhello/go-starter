@@ -1,14 +1,17 @@
 package main
 
-import "go-starter/app/cmd"
+import (
+	"go-starter/app/cmd"
+	_ "go-starter/docs"
+)
 
-// @title Goscription Example API
-// @version 1.0
-// @description This is a sample server celler server
+// @title go-starter restful API
+// @version 1.0.0
+// @description go-starter
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
-// @contact.url http://www.swagger.io/support
+// @contact.url http://localhost:8080
 // @contact.email support@swagger.io
 
 // @license.name Apache 2.0
@@ -17,23 +20,10 @@ import "go-starter/app/cmd"
 // @host localhost:8080
 // @BasePath /
 
-// @securityDefinitions.basic BasicAuth
-
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
 
-// @securitydefinitions.oauth2.implicit OAuth2Implicit
-// @authorizationurl https://example.com/oauth/authorize
-// @scope.write Grants write access
-// @scope.admin Grants read and write access to administrative information
-
-// @securitydefinitions.oauth2.accessCode OAuth2AccessCode
-// @tokenUrl https://example.com/oauth/token
-// @authorizationurl https://example.com/oauth/authorize
-// @scope.admin Grants read and write access to administrative information
-
-// @x-extension-openapi {"example": "value on a json format"}
 func main() {
 	cmd.Execute()
 }

@@ -6,8 +6,8 @@ import (
 )
 
 var (
-	configFile = "config/config.toml"
-	configType = "toml"
+	configFile = "config/config.yml"
+	configType = "yml"
 )
 
 type (
@@ -16,6 +16,7 @@ type (
 		ContextTimeout int      `mapstructure:"contextTimeout"`
 		Server         Server   `mapstructure:"server"`
 		Database       Database `mapstructure:"database"`
+		Nsq            Nsq      `mapstructure:"nsq"`
 	}
 
 	Server struct {
@@ -29,6 +30,11 @@ type (
 		Username string `mapstructure:"username"`
 		Password string `mapstructure:"password"`
 		Name     string `mapstructure:"name"`
+	}
+
+	Nsq struct {
+		Host string `mapstructure:"host"`
+		Port int    `mapstructure:"port"`
 	}
 )
 

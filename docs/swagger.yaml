@@ -1,4 +1,91 @@
+basePath: /
+definitions:
+  controller.ResponseError:
+    properties:
+      message:
+        type: string
+    type: object
+  controller.SimpleResponse:
+    properties:
+      data:
+        type: object
+      message:
+        type: string
+    type: object
+  models.BusinessGroup:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+    type: object
+host: localhost:8080
 info:
-  contact: {}
-paths: {}
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://localhost:8080
+  description: go-starter
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: go-starter restful API
+  version: 1.0.0
+paths:
+  /business_groups/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get BusinessGroup By Id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: BusinessGroup Info
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.SimpleResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.BusinessGroup'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "401":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "404":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get BusinessGroup By Id
+      tags:
+      - BusinessGroup
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

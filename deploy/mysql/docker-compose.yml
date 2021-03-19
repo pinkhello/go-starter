@@ -1,0 +1,32 @@
+---
+version: '3'
+
+networks:
+  go_starter_network:
+    external: true
+
+services:
+  yycrm_mysql:
+    restart: always
+    image: mysql:8.0.22
+    container_name: mysql_test
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=gostarter
+      - MYSQL_PASSWORD=gostarter
+      - MYSQL_DATABASE=db_test
+    ports:
+      - 3333:3306
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - go_starter_network
+    volumes:
+      - ./:/docker-entrypoint-initdb.d/
+      - ./custom.cnf:/etc/mysql/conf.d/mysql_custom.cnf
+      - ./mysql_data:/var/lib/mysql
+...

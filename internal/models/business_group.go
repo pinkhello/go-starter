@@ -5,15 +5,9 @@ import (
 )
 
 type BusinessGroup struct {
-	Id             int64     `json:"id"`
-	CreatedAt      time.Time `json:"created_at"`
-	UpdatedAt      time.Time `json:"updated_at"`
-	DeletedAt      time.Time `json:"deleted_at"`
-	Uid            string    `json:"uid"`
-	BusinessUid    string    `json:"business_uid"`
-	EnableMall     bool      `json:"enable_mall"`
-	EndOfMall      time.Time `json:"end_of_mall"`
-	DeliveryConfig int       `json:"delivery_config"`
-	Phones         string    `json:"phones"`
-	MallQrcode     string    `json:"mall_qrcode"`
+	Id        int64     `json:"id" xorm:"pk autoincr"`
+	Name      string    `json:"name" xorm:"VARCHAR(255) not null comment('商户名称')"`
+	Status    string    `json:"status" xorm:"VARCHAR(10) not null comment('状态｜invalid｜valid')"`
+	CreatedAt time.Time `json:"created_at" xorm:"created"`
+	UpdatedAt time.Time `json:"updated_at" xorm:"updated"`
 }

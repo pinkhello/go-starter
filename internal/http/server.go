@@ -19,6 +19,7 @@ func NewServer(lifecycle fx.Lifecycle, config config.Config) *echo.Echo {
 	instance.Use(middleware.CORS)
 	instance.Use(middleware.Logger)
 	instance.Use(middleware.Recover)
+	instance.Use(middleware.JWT)
 
 	instance.HTTPErrorHandler = middleware.ErrorHandler
 

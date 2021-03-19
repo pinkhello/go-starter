@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"go-starter/config"
@@ -19,22 +18,6 @@ var (
 			httpCmd.Run(cmd, args)
 		},
 	}
-
-	versionCmd = &cobra.Command{
-		Use:   "version",
-		Short: "Show Version",
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(rootCmd.Version)
-		},
-	}
-
-	projectCmd = &cobra.Command{
-		Use:   "project",
-		Short: "Show project name",
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(rootCmd.Use)
-		},
-	}
 )
 
 func Execute() {
@@ -46,7 +29,5 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(config.InitConfig)
-	rootCmd.AddCommand(versionCmd)
-	rootCmd.AddCommand(projectCmd)
 	rootCmd.AddCommand(httpCmd)
 }

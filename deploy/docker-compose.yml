@@ -1,11 +1,24 @@
-version: '3.1'
-services:
-  mysql:
-    restart: always
-    image: mysql
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-    - 3306:3306
+---
+version: '3'
 
+networks:
+  go_starter_network:
+    external: true
+
+services:
+  go_starter:
+    restart: always
+    image: go_starter
+    container_name: go_starter
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 8080:8080
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - go_starter_network
+...

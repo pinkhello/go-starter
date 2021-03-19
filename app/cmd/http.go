@@ -5,7 +5,7 @@ import (
 	"go-starter/config"
 	"go-starter/internal/controller"
 	"go-starter/internal/http"
-	"go-starter/internal/lib"
+	libs "go-starter/internal/lib"
 	"go-starter/internal/repository"
 	"go-starter/internal/service"
 	"go-starter/utils"
@@ -30,7 +30,7 @@ func inject() fx.Option {
 			config.NewConfig,
 			utils.NewTimeoutContext,
 		),
-		lib.Module,
+		libs.XormModule,
 		repository.Module,
 		service.Module,
 		controller.Module,

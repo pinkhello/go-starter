@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"context"
 	"github.com/labstack/echo/v4"
 	"go-starter/internal/service"
 	"go-starter/utils"
@@ -17,43 +16,32 @@ func InitBusinessGroupController(e *echo.Echo, groupService service.BusinessGrou
 	controller := &BusinessGroupController{
 		BusinessGroupService: groupService,
 	}
-	e.GET("/business_groups", controller.FetchBusinessGroup)
-	e.GET("/business_groups/:id", controller.GetById)
+	g := e.Group("/business_groups")
+	g.GET("/:id", controller.GetById)
 }
 
-type ResponseError struct {
-	Message string `json:"message"`
-}
-
-func (b *BusinessGroupController) FetchBusinessGroup(c echo.Context) error {
-	nums := c.QueryParam("num")
-	num, _ := strconv.Atoi(nums)
-	cursor := c.QueryParam("cursor")
-	ctx := c.Request().Context()
-	if ctx == nil {
-		ctx = context.Background()
-	}
-	listBg, nextCursor, err := b.BusinessGroupService.Fetch(ctx, cursor, int64(num))
-	if err != nil {
-		return c.JSON(utils.GetStatusCode(err), ResponseError{Message: err.Error()})
-	}
-	c.Response().Header().Set(`X-Cursor`, nextCursor)
-	return c.JSON(http.StatusOK, listBg)
-}
-
+// GetById godoc
+// @Summary Get BusinessGroup By Id
+// @Description Get BusinessGroup By Id
+// @Tags BusinessGroup
+// @Accept json
+// @Produce json
+// @Param id path int true "ID"
+// @Security ApiKeyAuth
+// @Header 200 {string} Token "qwerty"
+// @Success 200 {object} SimpleResponse{data=models.BusinessGroup} "BusinessGroup Info"
+// @Failure 400,401,404 {object} ResponseError
+// @Failure 500 {object} ResponseError
+// @Router /business_groups/{id} [get]
 func (b *BusinessGroupController) GetById(c echo.Context) error {
 	idParam, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(utils.GetStatusCode(err), ResponseError{Message: err.Error()})
 	}
-	ctx := c.Request().Context()
-	if ctx == nil {
-		ctx = context.Background()
-	}
 	id := int64(idParam)
-	bg, err := b.BusinessGroupService.GetById(ctx, id)
+	bg, err := b.BusinessGroupService.GetById(c.Request().Context(), id)
 	if err != nil {
 		return c.JSON(utils.GetStatusCode(err), ResponseError{Message: err.Error()})
 	}
-	return c.JSON(http.StatusOK, bg)
+	return c.JSON(http.StatusOK, SimpleResponse{Data: bg, Message: "success"})
 }
