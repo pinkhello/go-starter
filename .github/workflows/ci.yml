@@ -22,10 +22,7 @@ jobs:
       - name: Install Golangci-lint
         run: |
           curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b . latest
-#          golangci-lint run ./...
-      - name: Build
-        run: |
-          go build -v ./...
+          golangci-lint run  --enable-all ./...
 
 
   docker:
