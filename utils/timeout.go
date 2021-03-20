@@ -7,5 +7,6 @@ import (
 
 func NewTimeoutContext() time.Duration {
 	timeout := time.Duration(viper.GetInt("contextTimeout")) * time.Second
+
 	return timeout
 }

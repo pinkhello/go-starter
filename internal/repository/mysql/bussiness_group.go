@@ -8,7 +8,7 @@ import (
 )
 
 type BusinessGroupRepository interface {
-	GetById(ctx context.Context, id int64) (res models.BusinessGroup, err error)
+	GetByID(ctx context.Context, id int64) (res models.BusinessGroup, err error)
 }
 
 type mysqlBusinessGroupRepository struct {
@@ -22,7 +22,7 @@ func NewBusinessGroupRepository(engine *xorm.Engine) BusinessGroupRepository {
 	return &mysqlBusinessGroupRepository{engine: engine}
 }
 
-func (m *mysqlBusinessGroupRepository) GetById(ctx context.Context, id int64) (res models.BusinessGroup, err error) {
+func (m *mysqlBusinessGroupRepository) GetByID(ctx context.Context, id int64) (res models.BusinessGroup, err error) {
 	has, err := m.engine.ID(id).Get(&res)
 	if err != nil {
 		return models.BusinessGroup{}, err

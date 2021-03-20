@@ -9,7 +9,7 @@ import (
 
 type (
 	BusinessGroupService interface {
-		GetById(ctx context.Context, id int64) (businessGroup models.BusinessGroup, err error)
+		GetByID(ctx context.Context, id int64) (businessGroup models.BusinessGroup, err error)
 	}
 
 	BusinessGroupServiceImpl struct {
@@ -31,9 +31,9 @@ func NewBusinessGroupService(businessGroupRepo mysql.BusinessGroupRepository, ti
 	}
 }
 
-func (s *BusinessGroupServiceImpl) GetById(ctx context.Context, id int64) (businessGroup models.BusinessGroup, err error) {
+func (s *BusinessGroupServiceImpl) GetByID(ctx context.Context, id int64) (businessGroup models.BusinessGroup, err error) {
 	ctx, cancel := context.WithTimeout(ctx, s.contextTimeout)
 	defer cancel()
-	businessGroup, err = s.repo.GetById(ctx, id)
+	businessGroup, err = s.repo.GetByID(ctx, id)
 	return
 }

@@ -17,11 +17,11 @@ var (
 	httpCmd = &cobra.Command{
 		Use:   "http",
 		Short: "Start Http REST API",
-		Run:   initHttp,
+		Run:   initHTTP,
 	}
 )
 
-func initHttp(cmd *cobra.Command, args []string) {
+func initHTTP(cmd *cobra.Command, args []string) {
 	fx.New(inject()).Run()
 }
 
@@ -38,6 +38,5 @@ func inject() fx.Option {
 		nsq.ProducerModule,
 		nsq.ConsumerModule,
 		http.Module,
-
 	)
 }

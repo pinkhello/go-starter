@@ -2,7 +2,7 @@ package libs
 
 import (
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/go-sql-driver/mysql" // mysql driver
 	"go-starter/config"
 	"net/url"
 	"xorm.io/xorm"
