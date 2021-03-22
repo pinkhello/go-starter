@@ -43,7 +43,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: Get BusinessGroup By Id
+      description: Get BusinessGroup By ID
       parameters:
       - description: ID
         in: path
@@ -80,7 +80,45 @@ paths:
             $ref: '#/definitions/controller.ResponseError'
       security:
       - ApiKeyAuth: []
-      summary: Get BusinessGroup By Id
+      summary: Get BusinessGroup By ID
+      tags:
+      - BusinessGroup
+  /business_groups/producer:
+    get:
+      consumes:
+      - application/json
+      description: 测试 NSQ Producer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.SimpleResponse'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "401":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "404":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: 测试 NSQ Producer
       tags:
       - BusinessGroup
 securityDefinitions:
