@@ -1,6 +1,4 @@
-# go-starter
-
-## GoPush ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
+# go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
 --------------
 ## 集成的第三方库与技
@@ -142,6 +140,6 @@
   `doc 目录下为自动生成的，不需要更改，需要更改的化话需要更高主要上面的注释`
 
 
-# Star 趋势
+# star 趋势
 
 [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
