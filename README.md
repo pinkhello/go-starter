@@ -1,11 +1,9 @@
 # go-starter
 
-## GoPush ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues-pr/pinkhello/go-starter?color=0088ff)
-
-[![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
+## GoPush ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
 --------------
-## 集成的第三方库与技术
+## 集成的第三方库与技
 - [X] Github Actions
 - [X] 自定义Logger [logrus](https://github.com/sirupsen/logrus)
 - [X] CLI命令 [cobra](https://github.com/spf13/cobra)
@@ -143,3 +141,7 @@
 - swag 说明 
   `doc 目录下为自动生成的，不需要更改，需要更改的化话需要更高主要上面的注释`
 
+
+# Star 趋势
+
+[![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
