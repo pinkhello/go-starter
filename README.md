@@ -1,5 +1,9 @@
 # go-starter
 
+## GoPush ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues-pr/pinkhello/go-starter?color=0088ff)
+
+[![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
+
 --------------
 ## 集成的第三方库与技术
 - [X] Github Actions
