@@ -1,7 +1,7 @@
 # go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
 --------------
-## 集成的第三方库与技
+## 集成的第三方库与技术
 - [X] Github Actions
 - [X] 自定义Logger [logrus](https://github.com/sirupsen/logrus)
 - [X] CLI命令 [cobra](https://github.com/spf13/cobra)
