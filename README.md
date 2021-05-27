@@ -1,5 +1,9 @@
 # go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
+Demo 应用项目: [房产CRM信息系统](http://121.4.242.26) 
+- 访问地址: http://121.4.242.26 (test/123456), 因为域名未备案,被腾讯云拦截，只能使用IP了。
+- BE采用的 [go-starter](https://github.com/pinkhello/go-starter)
+- FE 采用的 [ant-design-vue-pro](https://pro.antdv.com/)
 --------------
 ## 集成的第三方库与技术
 - [X] Github Actions
