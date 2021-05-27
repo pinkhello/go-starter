@@ -4,7 +4,7 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
 - 访问地址: http://121.4.242.26 (test/123456), 因为域名未备案,被腾讯云拦截，只能使用IP了。
 - BE采用的 [go-starter](https://github.com/pinkhello/go-starter)
 - FE 采用的 [ant-design-vue-pro](https://pro.antdv.com/)
---------------
+
 ## 集成的第三方库与技术
 - [X] Github Actions
 - [X] 自定义Logger [logrus](https://github.com/sirupsen/logrus)
@@ -18,7 +18,7 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
 - [X] golangci-lint [golangci-lint](https://github.com/golangci/golangci-lint)
 - [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
 - [ ] ......
---------------
+
 ## 项目代码结构分层
 ```shell
    - app        # 主程序入口
@@ -42,7 +42,7 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
      - ... 
    - ...
 ```
---------------
+
 ## 构建发布依赖
 
 ### swag 生成最新的Swagger文档
@@ -84,7 +84,7 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
     ```shell
     http://{IP}:{PORT}/
     ```
---------------
+
 
 ### 其他文件相关描述
 
