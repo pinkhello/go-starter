@@ -62,7 +62,7 @@ Demo Project: [房产CRM](http://121.4.242.26)
   > { secrets.ACCESS_USERNAME }: `your docker hub username`
   ```
 
-### BE init & build & deploy
+### be deploy
 1. `docker network`:`go_starter_network`
     ```shell
     > docker network create go_starter_network
