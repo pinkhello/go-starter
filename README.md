@@ -1,17 +1,17 @@
 # go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
-Demo 应用项目: [房产CRM信息系统](http://121.4.242.26) 
-- 访问地址: http://121.4.242.26 (test/123456), 因为域名未备案,被腾讯云拦截，只能使用IP了。
-- BE采用的 [go-starter](https://github.com/pinkhello/go-starter)
-- FE 采用的 [ant-design-vue-pro](https://pro.antdv.com/)
+Demo Project: [房产CRM](http://121.4.242.26) 
+- url: http://121.4.242.26 (test/123456)。
+- BE [go-starter](https://github.com/pinkhello/go-starter)
+- FE [ant-design-vue-pro](https://pro.antdv.com/)
 
-## 集成的第三方库与技术
+## thirdparty
 - [X] Github Actions
-- [X] 自定义Logger [logrus](https://github.com/sirupsen/logrus)
-- [X] CLI命令 [cobra](https://github.com/spf13/cobra)
-- [X] 配置读取器 [viper](https://github.com/spf13/viper)
-- [X] Web框架 [echo](https://github.com/labstack/echo)
-- [X] 依赖注入 [fx](https://github.com/uber-go/fx)
+- [X] Custom Logger [logrus](https://github.com/sirupsen/logrus)
+- [X] CLI Command [cobra](https://github.com/spf13/cobra)
+- [X] Configuration [viper](https://github.com/spf13/viper)
+- [X] Web [echo](https://github.com/labstack/echo)
+- [X] DI/IOC [fx](https://github.com/uber-go/fx)
 - [X] ORM [xorm](https://github.com/go-xorm/xorm)
 - [X] Swagger generator [swag](https://github.com/swaggo/swag) [echo-swagger](https://github.com/swaggo/echo-swagger)
 - [X] Messaging [NSQ](https://github.com/nsqio/nsq)
@@ -19,94 +19,95 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
 - [ ] Migrate [migrate](https://github.com/golang-migrate/migrate)
 - [ ] ......
 
-## 项目代码结构分层
+## code layer
 ```shell
-   - app        # 主程序入口
+   - app        # application main
      - cmd
      - ... 
-   - config       # 配置相关
-   - deploy       # ci/cd相关, 镜像相关
+   - config       # config
+   - deploy       # ci/cd
      - mysql      # mysql docker-compose
      - nsq        # nsq docker-compose
-     - ...        # 其他部署相关     
-   - docs         # swag 生成的 swagger2.0 文档目录
-   - internal     # 核心业务逻辑
-     - controller # http handler（controller层）
-     - http       # http sever 启动入口
-     - lib        # 核心基础
-     - models     # 模型
-     - nsq        # nsq producer 和 nsq consumer 启动入口与业务
-     - repository # repository 层
-     - service    # service层
-   - utils        # 工具通用(工具方法、常量、通用错误定义)
+     - ...        # other     
+   - docs         # swag gen swagger2.0 doc
+   - internal     # core 
+     - controller # http handler（controller）
+     - http       # http sever startup
+     - lib        # lib
+     - models     # models
+     - nsq        # nsq producer & nsq consumer startup
+     - repository # repository 
+     - service    # service
+   - utils        # util
      - ... 
    - ...
 ```
 
-## 构建发布依赖
+## Build & Publish & Deploy
 
-### swag 生成最新的Swagger文档
+### swag tips
 ```shell
 > swag init -g app/main.go
 ```
-产生的swagger地址为 http://{IP}:{PORT}/swagger/index.html
+`swagger url: http://{IP}:{PORT}/swagger/index.html`
 
-### 构建和发布镜像
-- 本地
+### build
+- local
     ```shell
     > cd .
     > docker build . --file deploy/Dockerfile --tag {ImageTag}
     ```
 - github action 
-  > 在CI内部已经做了自动化构建和发布镜像（ `github` 当前项目下`secrets`配置的 { secrets.ACCESS_USERNAME } 的值是 `docker hub 用户名`）
+  ```shell
+  > { secrets.ACCESS_USERNAME }: `your docker hub username`
+  ```
 
-### BE初始化和启动部署
-1. 创建`docker`自定义网络`go_starter_network`
+### BE init & build & deploy
+1. `docker network`:`go_starter_network`
     ```shell
     > docker network create go_starter_network
     ```
-2. `mysql`启动 与 `nsq`启动
+2. `mysql` & `nsq`
     ```shell
-    # MYSQL 启动
+    # MYSQL start
     > cd deploy/mysql
     > docker-compose up -d
-    # NSQ 启动
+    # NSQ start
     > cd deploy/nsq
     > docker-compose up -d
     ```
-3. BE后端服务启动
+3. `be server`
     ```shell
-    # go-starter 启动
+    # go-starter start
     > cd deploy
     > docker-compose up -d
     ```
-4. 访问健康坚持接口
+4. `Health`
     ```shell
     http://{IP}:{PORT}/
     ```
 
 
-### 其他文件相关描述
-
-- Dockerfile -- Docker镜像分为两阶段构建, Builder阶段 与 打包阶段。
+### Other
+- Dockerfile 
   ```dockerfile
-    # Builder阶段构建二进制可执行文件
+    # build go 
     FROM golang:1.16.1-alpine3.13 as builder
     ......
     RUN CGO_ENABLED=0 GOOS=linux go build -o go_starter app/main.go
     
-    # 打包阶段
+    # package stage
     FROM alpine
     ......
-    # 从构建阶段COPY生成的可执行文件
+    # copy from builder
     COPY --from=builder /app/go_starter /app
     # ......
   ```
   
-- Uber 依赖框架 fx.   [fx 开发包详细说明](https://pkg.go.dev/go.uber.org/fx)
+- Uber IOC/DI: [fx](https://pkg.go.dev/go.uber.org/fx)
   
     ```go
-    //上面的代码不写了
+    //other code
     ......
     
     var (
@@ -121,7 +122,6 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
         fx.New(inject()).Run()
     }
     
-    // 注意前后依赖关系，顺序启动。
     func inject() fx.Option {
         return fx.Options(
             fx.Provide(
@@ -139,11 +139,6 @@ Demo 应用项目: [房产CRM信息系统](http://121.4.242.26)
     }
     
     ```
-  
-- swag 说明 
-  `doc 目录下为自动生成的，不需要更改，需要更改的化话需要更高主要上面的注释`
 
-
-# star 趋势
-
+## star
 [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
