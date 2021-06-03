@@ -1,6 +1,6 @@
 # go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
-Demo Project: [房产CRM](http://121.4.242.26) 
+Demo: [房产CRM](http://121.4.242.26) 
 - url: http://121.4.242.26 (test/123456)。
 - BE [go-starter](https://github.com/pinkhello/go-starter)
 - FE [ant-design-vue-pro](https://pro.antdv.com/)
