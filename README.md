@@ -140,5 +140,5 @@ Demo: [房产CRM](http://121.4.242.26)
     
     ```
 
-## star
-[![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter)
+<!-- ## star -->
+<!-- [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter) -->
