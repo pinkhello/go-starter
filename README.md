@@ -2,11 +2,9 @@
 
 ## github activity
 
-<!-- ## star -->
-<!-- [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter) -->
-
 [![Stargazers repo roster for @pinkhello/go-starter](https://reporoster.com/stars/pinkhello/go-starter)](https://github.com/pinkhello/go-starter/stargazers)
 
+[![Stargazers over time](https://starchart.cc/pinkhello/go-starter.svg)](https://starchart.cc/pinkhello/go-starter)
 
 
 ## Demo
