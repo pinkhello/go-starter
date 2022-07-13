@@ -1,9 +1,22 @@
 # go-starter ![](https://img.shields.io/github/stars/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/forks/pinkhello/go-starter?color=0088ff) ![](https://img.shields.io/github/issues/pinkhello/go-starter?color=0088ff)
 
+## github activity
+
+<!-- ## star -->
+<!-- [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter) -->
+
+[![Stargazers repo roster for @pinkhello/go-starter](https://reporoster.com/stars/pinkhello/go-starter)](https://github.com/pinkhello/go-starter/stargazers)
+
+
+
+## Demo
 Demo: [房产CRM](http://121.4.242.26) 
 - url: http://121.4.242.26 (test/123456)。
 - BE [go-starter](https://github.com/pinkhello/go-starter)
 - FE [ant-design-vue-pro](https://pro.antdv.com/)
+
+
+
 
 ## thirdparty
 - [X] Github Actions
@@ -140,5 +153,4 @@ Demo: [房产CRM](http://121.4.242.26)
     
     ```
 
-<!-- ## star -->
-<!-- [![Stargazers over time](https://starchart.cc/PinkHello/go-starter.svg)](https://starchart.cc/PinkHello/go-starter) -->
+
